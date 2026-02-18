@@ -1,13 +1,13 @@
-package service.teamly;
+package com.suygecu.teamly_service.teamly;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import teamly.ArticleCreatePayload;
-import teamly.CommandRequest;
-import teamly.PropertyOperation;
-import teamly.TeamlyUser;
+import service.teamly.ArticleCreatePayload;
+import service.teamly.CommandRequest;
+import service.teamly.PropertyOperation;
+import service.teamly.TeamlyUser;
 
 import java.util.List;
 import java.util.Map;

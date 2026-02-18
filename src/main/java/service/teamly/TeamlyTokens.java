@@ -1,4 +1,4 @@
-package teamly;
+package service.teamly;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;

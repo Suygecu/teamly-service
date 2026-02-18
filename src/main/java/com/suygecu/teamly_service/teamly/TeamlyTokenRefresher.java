@@ -1,4 +1,4 @@
-package service.teamly;
+package com.suygecu.teamly_service.teamly;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;

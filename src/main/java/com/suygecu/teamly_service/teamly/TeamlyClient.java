@@ -1,4 +1,4 @@
-package service.teamly;
+package com.suygecu.teamly_service.teamly;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 

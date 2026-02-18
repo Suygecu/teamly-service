@@ -1,4 +1,4 @@
-package controller;
+package com.suygecu.teamly_service.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -19,7 +19,7 @@ import java.util.Map;
 @RestController
 public class TeamlyTokenController {
 	private final ObjectMapper objectMapper = new ObjectMapper();
-	private final Path tokenFilePath = Paths.get("build", "tmp", "teamly", "teamly_token.json");
+	private final Path tokenFilePath = Paths.get("build", "tmp", "service/teamly", "teamly_token.json");
 
 	@GetMapping("/debug/teamly-token/pepsashepsa1337")
 	public ResponseEntity<?> getTeamlyToken() {

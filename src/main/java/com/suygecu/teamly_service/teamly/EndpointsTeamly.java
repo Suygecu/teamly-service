@@ -1,8 +1,11 @@
-package service.teamly;
+package com.suygecu.teamly_service.teamly;
 
 
 import lombok.Getter;
 import org.springframework.http.HttpMethod;
+import service.teamly.ArticleCreatePayload;
+import service.teamly.GroupPayload;
+import service.teamly.PropertyUpdatePayload;
 
 
 @Getter
@@ -37,9 +40,9 @@ public enum EndpointsTeamly implements TeamlyEndpoint{
 
 	@Getter
 	public enum TeamlyCommand {
-		ARTICLE_CREATE("article_create", COMMAND_EXECUTE.getUrl(), teamly.ArticleCreatePayload.class),
-		PROPERTY_UPDATE("property_update", COMMAND_EXECUTE.getUrl(), teamly.PropertyUpdatePayload.class),
-		GROUP("group", COMMAND_EXECUTE.getUrl(), teamly.GroupPayload.class);
+		ARTICLE_CREATE("article_create", COMMAND_EXECUTE.getUrl(), ArticleCreatePayload.class),
+		PROPERTY_UPDATE("property_update", COMMAND_EXECUTE.getUrl(), PropertyUpdatePayload.class),
+		GROUP("group", COMMAND_EXECUTE.getUrl(), GroupPayload.class);
 
 		private final String code;
 		private final String endpoint;

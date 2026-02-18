@@ -1,11 +1,11 @@
-package service.teamly;
+package com.suygecu.teamly_service.teamly;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import teamly.TeamlyTokens;
+import service.teamly.TeamlyTokens;
 
 import java.time.Instant;
 

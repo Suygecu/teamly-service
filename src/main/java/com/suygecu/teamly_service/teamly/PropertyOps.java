@@ -1,7 +1,7 @@
-package service.teamly;
+package com.suygecu.teamly_service.teamly;
 
 
-import teamly.PropertyOperation;
+import service.teamly.PropertyOperation;
 
 public final class PropertyOps {
 
