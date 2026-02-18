@@ -48,7 +48,6 @@ Thumbs.db
 # Сборки
 *.class
 *.jar
-!libs/mattermost_client.jar
 *.war
 
 # Ignore sensitive config
