@@ -1,0 +1,57 @@
+.gradle
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+# Логи
+*.log
+
+# Временные файлы
+*.tmp
+*.bak
+*.swp
+
+# Конфигурации
+.DS_Store
+Thumbs.db
+
+# Сборки
+*.class
+*.jar
+!libs/mattermost_client.jar
+*.war
+
+# Ignore sensitive config
+src/main/resources/application.properties
+src/main/resources/confluence-user-mapping.json
+/src/main/resources/pages/*.html
