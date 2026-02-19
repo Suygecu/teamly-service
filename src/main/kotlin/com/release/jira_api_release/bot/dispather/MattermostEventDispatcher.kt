@@ -4,7 +4,6 @@ import com.release.jira_api_release.bot.ui.ReleaseDialogWindow
 import com.release.jira_api_release.bot.handlers.command.CommandDispatcher
 import com.release.jira_api_release.bot.handlers.dialog.ReleaseDialogHandler
 import com.release.jira_api_release.bot.util.isFromBot
-import com.release.jira_api_release.service.UpdateArtistTable
 import com.release.jira_api_release.service.UpdateSummaryState
 import net.exbo.mattermost.client.MattermostClient
 import net.exbo.mattermost.client.data.MattermostPost
@@ -16,7 +15,6 @@ class MattermostEventDispatcher(
     private val client: MattermostClient,
     private val commandDispatcher: CommandDispatcher,
     private val releaseDialogHandler: ReleaseDialogHandler,
-    private val updateArtistTable: UpdateArtistTable,
     private val updateSummaryState: UpdateSummaryState
 ) {
 
@@ -76,7 +74,6 @@ class MattermostEventDispatcher(
 
                         try {
 
-                            updateArtistTable.updateAllTablesInParallel()
 
                             client.sendMessage(
                                 CreatePostMessage(
@@ -104,7 +101,7 @@ class MattermostEventDispatcher(
             }
 
             is DialogSubmissionMessage -> {
-                releaseDialogHandler.releaseInfo(event)
+
             }
 
             else -> {

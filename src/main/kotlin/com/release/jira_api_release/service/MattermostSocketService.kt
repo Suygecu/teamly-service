@@ -1,9 +1,7 @@
 package com.release.jira_api_release.service
 
 import com.release.jira_api_release.bot.dispather.MattermostEventDispatcher
-import com.release.jira_api_release.bot.handlers.command.ArtistsCommandHandler
 import com.release.jira_api_release.bot.handlers.command.CommandDispatcher
-import com.release.jira_api_release.bot.handlers.command.ReleaseCommandHandler
 import com.release.jira_api_release.bot.handlers.command.ShutDownCommandHandler
 import com.release.jira_api_release.bot.handlers.dialog.ReleaseDialogHandler
 import com.release.jira_api_release.config.MattermostProperties
@@ -17,7 +15,6 @@ import java.util.concurrent.atomic.AtomicBoolean
 @Component
 class MattermostSocketService(
     private val releaseDialogHandler: ReleaseDialogHandler,
-    private val updateArtistTable: UpdateArtistTable,
     private val props: MattermostProperties,
     private val client: MattermostClient,
     private val updateSummaryState: UpdateSummaryState,
@@ -26,8 +23,6 @@ class MattermostSocketService(
 
     private val commandDispatcher = CommandDispatcher(
         listOf(
-            ReleaseCommandHandler(props),
-            ArtistsCommandHandler(),
             ShutDownCommandHandler(),
         )
     )
@@ -37,8 +32,7 @@ class MattermostSocketService(
         client,
         commandDispatcher,
         releaseDialogHandler,
-        updateArtistTable,
-        updateSummaryState
+        updateSummaryState,
     )
 
     @PostConstruct

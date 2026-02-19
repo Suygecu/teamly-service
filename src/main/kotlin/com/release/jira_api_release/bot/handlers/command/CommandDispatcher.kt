@@ -15,11 +15,9 @@ class CommandDispatcher(
     }
     @Bean
     fun commandDispatcher(
-        artistsCommandHandler: ArtistsCommandHandler,
-        releaseCommandHandler: ReleaseCommandHandler,
         shutDownCommandHandler: ShutDownCommandHandler
     ): CommandDispatcher {
-        return CommandDispatcher(listOf(artistsCommandHandler, releaseCommandHandler, shutDownCommandHandler))
+        return CommandDispatcher(listOf(shutDownCommandHandler))
     }
 }
 

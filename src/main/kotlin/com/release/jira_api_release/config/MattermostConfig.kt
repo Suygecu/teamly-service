@@ -8,11 +8,11 @@ import org.springframework.context.annotation.Configuration
 open class MattermostConfig {
 
     @Bean
-    open fun mattermostClient(props: MattermostProperties): MattermostClient {
+    open fun MattermostProperties.mattermostClient(): MattermostClient {
         return MattermostClient(
-            props.hostname,
-            props.authToken,
-            props.wsToken
+            hostname,
+            authToken,
+            wsToken
         )
     }
 }
