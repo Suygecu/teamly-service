@@ -24,7 +24,6 @@ public class TeamlySyncRequestPoller {
 
 	private final TeamlyApiClient teamlyApiClient;
 	private final ObjectMapper objectMapper;
-	private final MattermostSyncNotifier mattermostSyncNotifier;
 
 	@Value("${teamly.sync.content-database-id:6f39f073-928d-4deb-bb20-4dd994e6334a}")
 	private String contentDatabaseId;
@@ -39,11 +38,10 @@ public class TeamlySyncRequestPoller {
 	private volatile boolean initialized = false;
 
 	public TeamlySyncRequestPoller(TeamlyApiClient teamlyApiClient,
-	                               ObjectMapper objectMapper,
-	                               MattermostSyncNotifier mattermostSyncNotifier) {
+	                               ObjectMapper objectMapper) {
 		this.teamlyApiClient = teamlyApiClient;
 		this.objectMapper = objectMapper;
-		this.mattermostSyncNotifier = mattermostSyncNotifier;
+
 	}
 
 	@Scheduled(fixedDelayString = "${teamly.sync.poll-interval-ms:1000}", initialDelayString = "${teamly.sync.initial-delay-ms:5000}")
@@ -98,7 +96,7 @@ public class TeamlySyncRequestPoller {
 					text.append("- ...и еще ").append(newIds.size() - limit).append("\n");
 				}
 
-				text.append("\n🔗 https://base.xexbo.ru/space/dba6aec9-a010-40b9-afc8-074467d5d0cb/database/")
+				text.append("\n🔗 https://base.xexbo.ru/space/6f39f073-928d-4deb-bb20-4dd994e6334a/database/")
 						.append(contentDatabaseId)
 						.append("?viewId=663fba82-0ed7-40de-a1a7-21c542ec3e6a");
 

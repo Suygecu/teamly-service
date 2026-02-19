@@ -1,0 +1,282 @@
+//Создание дочерней строки в умной таблице сразу со значениями
+// ID указываем произвольное ( генерим свое)
+// "code": "row-child-0001" - тоже генерим свое
+// "Эндпоинт" - /api/v1/wiki/properties/command/execute
+{
+  "code": "article_create",
+  "payload": {
+    "entity": {
+      "spaceId": "6e5bbe6a-8034-471e-a1a7-088ee7f7fed1", - айди пространства
+      "id": "f1c6e3a2-0fb0-4ef4-8d70-1c90ad5c1234", - свое произвольное айди
+      "parentId" :"83a5817e-7adc-47f4-9d77-aa06535803c0", - указываем айди строки в таблице родитеской, что бы создать дочернюю, без указания создатся еще одни родительская
+      "properties": [
+        {
+          "method": "add",
+          "code": "title",
+          "value": {
+            "text": "Some text",
+            "icon": null
+          }
+        }
+      ]
+    }
+  }
+}
+___________________________
+
+
+
+////Как передавать PERSON
+{
+  "code": "property_update",
+  "payload": {
+    "entity": {
+      "spaceId": "d1ef83b6-cd97-46a1-83bf-a25c1e6dfc9e",
+      "articleId": "01ae52b7-8316-473d-8432-ac73151a7fdf"
+    },
+    "operation": {
+      "code": "DoGr",
+      "method": "update",
+      "value": [
+        {
+         "id": "6da51951-1ed8-454f-b2b3-9667d5872a5b",
+         "avatarPath": "/auth-service/avatars/12/1a/e7d44bde-a3d5-4f9a-9347-53b00d2dfcf2.jpg?t=1758556870",
+         "fullName": "Константин Стрельцов (suygecu)"
+        }
+      ]
+    }
+  }
+}
+
+ ======ПРИМЕР РРЕЛИЗНОГО ЧЕКЛИСТА ДЛЯ ТЕСТЕРОВ=====
+
+//Редактирование поля
+//Берем айди дочерней строки, которую создали предварительно и для каждого поля указываем новые параметры
+==== ДОПОЛНИТЬ СПИСОК ВОЗМОЖНЫХ CODE, COMMANDS, OPERATION И КОМАНД
+
+{
+  "code": "group",
+  "payload": {
+    "commands": [
+
+      // Select "Global" (XEwY) — принимает объект с id
+      {
+        "code": "property_update",
+        "payload": {
+          "entity": {
+            "spaceId": "d1ef83b6-cd97-46a1-83bf-a25c1e6dfc9e",
+            "articleId": "11111111-1111-4111-8111-111111111111"
+          },
+          "operation": {
+            "code": "XEwY",
+            "method": "update",
+            "value": { "id": "2df2aa33-f564-4cdd-90cf-0714698fd6a9" }
+          }
+        }
+      },
+
+      // Документация (OJld) — текстовое поле
+      {
+        "code": "property_update",
+        "payload": {
+          "entity": {
+            "spaceId": "d1ef83b6-cd97-46a1-83bf-a25c1e6dfc9e",
+            "articleId": "11111111-1111-4111-8111-111111111111"
+          },
+          "operation": {
+            "code": "OJld",
+            "method": "update",
+            "value": "Документация: ссылка/текст"
+          }
+        }
+      },
+
+      // Комментарий (HyF6) — текстовое поле
+      {
+        "code": "property_update",
+        "payload": {
+          "entity": {
+            "spaceId": "d1ef83b6-cd97-46a1-83bf-a25c1e6dfc9e",
+            "articleId": "11111111-1111-4111-8111-111111111111"
+          },
+          "operation": {
+            "code": "HyF6",
+            "method": "update",
+            "value": "Комментарий по вложенной задаче"
+          }
+        }
+      },
+
+      // DoGr — поле типа person[], массив пользователей
+      {
+        "code": "property_update",
+        "payload": {
+          "entity": {
+            "spaceId": "d1ef83b6-cd97-46a1-83bf-a25c1e6dfc9e",
+            "articleId": "11111111-1111-4111-8111-111111111111"
+          },
+          "operation": {
+            "code": "DoGr",
+            "method": "update",
+            "value": [
+              { "id": "6da51951-1ed8-454f-b2b3-9667d5872a5b" }
+            ]
+          }
+        }
+      },
+
+      // 5wcF — поле типа person[], массив пользователей
+      {
+        "code": "property_update",
+        "payload": {
+          "entity": {
+            "spaceId": "d1ef83b6-cd97-46a1-83bf-a25c1e6dfc9e",
+            "articleId": "11111111-1111-4111-8111-111111111111"
+          },
+          "operation": {
+            "code": "5wcF",
+            "method": "update",
+            "value": [
+              { "id": "6da51951-1ed8-454f-b2b3-9667d5872a5b" }
+            ]
+          }
+        }
+      },
+
+      // Select "Ru" (mUEI) — принимает объект с id
+      {
+        "code": "property_update",
+        "payload": {
+          "entity": {
+            "spaceId": "d1ef83b6-cd97-46a1-83bf-a25c1e6dfc9e",
+            "articleId": "11111111-1111-4111-8111-111111111111"
+          },
+          "operation": {
+            "code": "mUEI",
+            "method": "update",
+            "value": { "id": "db3c8d94-f52d-413c-835c-ad6c6b213f4a" }
+          }
+        }
+      },
+
+      // Автор (author) — системное поле, person (один объект)
+      {
+        "code": "property_update",
+        "payload": {
+          "entity": {
+            "spaceId": "d1ef83b6-cd97-46a1-83bf-a25c1e6dfc9e",
+            "articleId": "11111111-1111-4111-8111-111111111111"
+          },
+          "operation": {
+            "code": "author",
+            "method": "update",
+            "value": { "id": "6da51951-1ed8-454f-b2b3-9667d5872a5b" }
+          }
+        }
+      },
+
+      // Заголовок строки (title) — rich-text
+      {
+        "code": "property_update",
+        "payload": {
+          "entity": {
+            "spaceId": "d1ef83b6-cd97-46a1-83bf-a25c1e6dfc9e",
+            "articleId": "11111111-1111-4111-8111-111111111111"
+          },
+          "operation": {
+            "code": "title",
+            "method": "update",
+            "value": [
+              {
+                "type": "text",
+                "text": { "content": "Новое название строки" }
+              }
+            ]
+          }
+        }
+      },
+      //
+      {
+
+              "code": "property_update",
+              "payload": {
+                "entity": {
+                  "spaceId": "d1ef83b6-cd97-46a1-83bf-a25c1e6dfc9e",
+                  "articleId": "11111111-1111-4111-8111-111111111111"
+                },
+                "operation": {
+                  "code": "3uvH",
+                  "type" : "url",
+
+                  "method": "update",
+                  "value": { "title": "PM-310", "url": "https://jira.xexbo.ru/browse/PM-310" }
+
+
+
+                }
+              }
+            }
+    ]
+  }
+}
+
+______ ==== Пример CODE полей в умной таблице (Берется из запроса к таблице) ==== ______
+// Заголовок строки (title) — принимает rich-text массив
+"value": [
+  {
+    "type": "text",
+    "text": "Новое название строки"
+  }
+]
+
+// Автор (author) — принимает объект (person, один)
+"value": { "id": "uuid-пользователя" }
+
+// Документация (OJld) — принимает строку
+"value": "Документация: ссылка/текст"
+
+// Комментарий (HyF6) — принимает строку
+"value": "Какой-то комментарий"
+
+// Select "Ru" (mUEI) — принимает объект с id
+"value": { "id": "uuid-опции-Ru" }
+
+// Select "Global" (XEwY) — принимает объект с id
+"value": { "id": "uuid-опции-Global" }
+
+// DoGr (person[]) — принимает массив объектов
+"value": [
+  { "id": "uuid-пользователя-1" },
+  { "id": "uuid-пользователя-2" }
+]
+
+// 5wcF (person[]) — принимает массив объектов
+"value": [
+  { "id": "uuid-пользователя" }
+]
+
+//Получаем значения вложенных строк из умной таблицы
+//"parentId": "d9682e1b-92f3-4bdd-9b0a-a3f10fe79fbc" - айди родительской строки
+// "Эндпоинт" - //api/v1/ql/content-database/nestedContent
+{
+    "query": {
+        "__pagination": {
+            "page": 1,
+            "per_page": 25
+        },
+        "__filter": {
+            "parentId": "d9682e1b-92f3-4bdd-9b0a-a3f10fe79fbc"
+        },
+        "article": {
+            "id": true,
+            "properties": {
+                "properties": true
+            }
+        },
+        "hasNested": true
+    }
+}
+
+
+=====Как искать новую релизную табличку?====
+933ed6ee-72ba-4e47-840f-ad12d917283e - айди тестовой по артиклу
