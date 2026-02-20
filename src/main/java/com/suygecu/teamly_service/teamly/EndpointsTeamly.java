@@ -3,9 +3,9 @@ package com.suygecu.teamly_service.teamly;
 
 import lombok.Getter;
 import org.springframework.http.HttpMethod;
-import service.teamly.ArticleCreatePayload;
-import service.teamly.GroupPayload;
-import service.teamly.PropertyUpdatePayload;
+import com.suygecu.teamly_service.dto.ArticleCreatePayload;
+import com.suygecu.teamly_service.dto.GroupPayload;
+import com.suygecu.teamly_service.dto.PropertyUpdatePayload;
 
 
 @Getter

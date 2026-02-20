@@ -1,4 +1,4 @@
-package service.teamly;
+package com.suygecu.teamly_service.dto;
 
 import lombok.Data;
 

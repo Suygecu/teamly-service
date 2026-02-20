@@ -9,8 +9,8 @@ plugins {
 }
 
 group = 'com.suygecu'
-version = '0.0.1-SNAPSHOT'
-description = 'Demo project for Spring Boot'
+version = '0.1'
+description = ''
 
 java {
 	toolchain {

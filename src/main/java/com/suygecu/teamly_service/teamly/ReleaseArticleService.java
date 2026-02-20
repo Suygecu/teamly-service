@@ -4,10 +4,10 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import service.teamly.ArticleCreatePayload;
-import service.teamly.CommandRequest;
-import service.teamly.PropertyOperation;
-import service.teamly.TeamlyUser;
+import com.suygecu.teamly_service.dto.ArticleCreatePayload;
+import com.suygecu.teamly_service.dto.CommandRequest;
+import com.suygecu.teamly_service.dto.PropertyOperation;
+import com.suygecu.teamly_service.dto.TeamlyUser;
 
 import java.util.List;
 import java.util.Map;

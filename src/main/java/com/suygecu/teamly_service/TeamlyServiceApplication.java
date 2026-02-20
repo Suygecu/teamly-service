@@ -10,9 +10,12 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
-@ComponentScan(basePackages = {"com.suygecu.teamly_service", "controller", "service", "teamly"})
 @EnableScheduling
 @EnableAsync
+@ComponentScan(basePackages = {
+		"com.suygecu.teamly_service",
+		"com.release.jira_api_release"
+})
 public class TeamlyServiceApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
