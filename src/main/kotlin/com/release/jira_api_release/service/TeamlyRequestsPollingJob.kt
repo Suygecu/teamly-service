@@ -35,7 +35,7 @@ class TeamlyRequestsPollingJob(
         log.info("Loaded processed={}, pending={}", processed.size, pending.size)
     }
 
-    @Scheduled(fixedDelayString = "\${teamly.requests.poll-ms:1000}", initialDelayString = "\${teamly.requests.initial-delay-ms:1000}")
+    @Scheduled(fixedDelayString = "\${teamly.requests.poll-ms:1000}", initialDelayString = "\${teamly.requests.initial-delay-ms:15000}")
     fun poll() {
         try {
             val response = teamlyQueryService.fetchSchemaProperties(contentDatabaseId, parentId)

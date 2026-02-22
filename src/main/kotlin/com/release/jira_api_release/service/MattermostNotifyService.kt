@@ -15,9 +15,10 @@ class MattermostNotifyService(
 
     fun sendNewRequest(title: String) {
         val message = buildString {
-            append("📩 **Новая заявка**: ").append(title).append('\n')
-            append("👉 [Открыть страницу с заявками](").append(requestsPageUrl).append(')')
-            append("@moonshy @suygecu").append(title).append('\n')
+            appendLine("📩 **Новая заявка на синхрон:** $title")
+            appendLine("👥 @moonshy @suygecu")
+            append("👉 [Открыть страницу с заявками]($requestsPageUrl)")
+
         }
 
         client.sendMessage(
