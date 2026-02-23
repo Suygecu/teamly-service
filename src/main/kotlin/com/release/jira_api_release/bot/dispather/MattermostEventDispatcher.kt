@@ -5,6 +5,7 @@ import com.release.jira_api_release.bot.handlers.command.CommandDispatcher
 import com.release.jira_api_release.bot.handlers.dialog.ReleaseDialogHandler
 import com.release.jira_api_release.bot.util.isFromBot
 import com.release.jira_api_release.service.UpdateSummaryState
+import com.suygecu.teamly_service.teamly.TeamlyQuerySyncBuildService
 import net.exbo.mattermost.client.MattermostClient
 import net.exbo.mattermost.client.data.MattermostPost
 
@@ -15,7 +16,8 @@ class MattermostEventDispatcher(
     private val client: MattermostClient,
     private val commandDispatcher: CommandDispatcher,
     private val releaseDialogHandler: ReleaseDialogHandler,
-    private val updateSummaryState: UpdateSummaryState
+    private val updateSummaryState: UpdateSummaryState,
+    private val teamlyQuerySyncBuildService: TeamlyQuerySyncBuildService
 ) {
 
     fun handler(event: WSMessage) {
@@ -58,31 +60,30 @@ class MattermostEventDispatcher(
                         )
                     }
 
-                    event.action.context["update_artists"] == "update_artists_action" -> {
+                    event.action.context["syncbuild"] == "syncbuild_accepted" -> {
                         val channelId = event.action.channel_id
+
                         client.sendMessage(
                             CreatePostMessage(
                                 MattermostPost(
                                     channel_id = channelId,
-                                    message = "---\n" +
-                                           ":pizdec: Начинаю обновление таблиц отчета. Это займет некоторое время... :pizdec: \n"
-
+                                    message = "---\n:hourglass_flowing_sand: Проверяю статусы SyncBuild..."
                                 )
                             )
                         )
 
-
                         try {
-
+                            val result = teamlyQuerySyncBuildService.requestSyncBuildTable()
 
                             client.sendMessage(
                                 CreatePostMessage(
                                     MattermostPost(
                                         channel_id = channelId,
-                                        message = "---\n" +
-                                                " :panda_rage: Таблицы обновлены :panda_rage: :\n" +
-                                                "\n" +
-                                                updateSummaryState.summaryPage
+                                        message = if (result.isBlank()) {
+                                            "---\n✅ Команда: syncbuild general -chunkdist=16 -nostart -nolocs=" + result
+                                        } else {
+                                            "---\n✅  syncbuild general -chunkdist=16 -nostart -nolocs=$result"
+                                        }
                                     )
                                 )
                             )
@@ -91,7 +92,7 @@ class MattermostEventDispatcher(
                                 CreatePostMessage(
                                     MattermostPost(
                                         channel_id = channelId,
-                                        message = "❌ Ошибка при обновлении таблицы отчета: ${e.message}"
+                                        message = "❌ Ошибка при проверке SyncBuild: ${e.message}"
                                     )
                                 )
                             )

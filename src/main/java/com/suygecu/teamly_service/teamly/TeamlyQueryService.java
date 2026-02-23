@@ -65,34 +65,5 @@ public class TeamlyQueryService {
 
 	}
 
-	public List<JsonNode> findCompleteRows (JsonNode response){
-		JsonNode content = response.get("content");
-
-		List<JsonNode> result = new ArrayList<>();
-		for (JsonNode row : content) {
-			if (isComplete(row))
-				result.add(row);
-
-		}
-		return result;
-
-	}
-
-	public List<JsonNode> findNewCompleteRows(JsonNode response, Set<String> processedIds) {
-		JsonNode content = response.get("content");
-
-		List<JsonNode> result = new ArrayList<>();
-		for (JsonNode row : content) {
-			if (!isComplete(row)) continue;
-
-			String articleId = row.path("article").path("id").asText("");
-			if (articleId.isEmpty()) continue;
-
-			if (!processedIds.contains(articleId)) {
-				result.add(row);
-			}
-		}
-		return result;
-	}
 
 }

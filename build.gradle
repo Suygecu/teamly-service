@@ -9,7 +9,7 @@ plugins {
 }
 
 group = 'com.suygecu'
-version = '0.1'
+version = ''
 description = ''
 
 java {
