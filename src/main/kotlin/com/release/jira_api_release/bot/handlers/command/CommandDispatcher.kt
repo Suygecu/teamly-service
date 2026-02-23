@@ -15,9 +15,10 @@ class CommandDispatcher(
     }
     @Bean
     fun commandDispatcher(
-        shutDownCommandHandler: ShutDownCommandHandler
+        shutDownCommandHandler: ShutDownCommandHandler,
+        synbuildCommandHandler: SynbuildCommandHandler
     ): CommandDispatcher {
-        return CommandDispatcher(listOf(shutDownCommandHandler))
+        return CommandDispatcher(listOf(shutDownCommandHandler,synbuildCommandHandler))
     }
 }
 

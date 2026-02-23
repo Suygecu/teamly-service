@@ -19,7 +19,7 @@ import java.util.Map;
 @RestController
 public class TeamlyTokenController {
 	private final ObjectMapper objectMapper = new ObjectMapper();
-	private final Path tokenFilePath = Paths.get("build", "tmp", "com/suygecu/teamly_service/dto", "teamly_token.json");
+	private final Path tokenFilePath = Paths.get("build", "tmp", "teamly", "teamly_token.json");
 
 	@GetMapping("/debug/teamly-token/pepsashepsa1337")
 	public ResponseEntity<?> getTeamlyToken() {

@@ -19,4 +19,17 @@ object Action {
         )
     }
 
+    fun  syncBuild(): MattermostAction {
+        return MattermostAction(
+            type = MattermostActionType.BUTTON,
+            name = "Собрать команду для синхрона",
+            style = "primary",
+            integration = MattermostIntegration(
+                context = mapOf(
+                    "syncbuild" to "syncbuild_accepted"
+                )
+            )
+        )
+    }
+
 }

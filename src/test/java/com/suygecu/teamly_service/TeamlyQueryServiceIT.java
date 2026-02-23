@@ -4,6 +4,7 @@ package com.suygecu.teamly_service;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.suygecu.teamly_service.teamly.ProcessedIdsStore;
 import com.suygecu.teamly_service.teamly.TeamlyQueryService;
+import com.suygecu.teamly_service.teamly.TeamlyQuerySyncBuildTable;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,40 +23,30 @@ public class TeamlyQueryServiceIT {
 	private TeamlyQueryService teamlyQueryService;
 	@Autowired
 	private ProcessedIdsStore processedIdsStore;
+	@Autowired
+	private TeamlyQuerySyncBuildTable teamlyQuerySyncBuildTable;
 
-	/*@Test
+	@Test
 	void testFetchContentAndPrintCompleteRows() {
-		String dbId = "6f39f073-928d-4deb-bb20-4dd994e6334a";
-		String parentId = "a3591af8-c9fa-4eba-894d-18a19bc2f122";
+		String dbId = "0f98e8e4-98d6-4c63-93d6-185bab000f23";
+		String parentId = "dba6aec9-a010-40b9-afc8-074467d5d0cb";
 
-		Set<String> processed = processedIdsStore.read();
+
 
 		// 2) получаем свежий контент
-		JsonNode response = teamlyQueryService.fetchSchemaProperties(dbId, parentId);
+		JsonNode response = teamlyQuerySyncBuildTable.teamlyQuerySyncBuildTable(dbId, parentId);
+		System.out.println(response);
 
-		// 3) находим новые полные
-		List<JsonNode> newComplete = teamlyQueryService.findNewCompleteRows(response, processed);
 
-		System.out.println("NEW complete count = " + newComplete.size());
-
-		// 4) печатаем и добавляем в processed
-		for (JsonNode row : newComplete) {
-			String id = row.path("article").path("id").asText("");
-			String title = row.path("article").path("properties").path("properties").path("title").path("text").asText(
-					"");
-			System.out.println("NEW COMPLETE id=" + id + " title=" + title);
-
-			processed.add(id);
-		}
-
-		// 5) сохраняем обновлённый список
-		processedIdsStore.write(processed);
-	}*/
-	@Autowired
+	}
+	/*@Autowired
 	private MattermostNotifyService mattermostNotifyService;
 
 	@Test
 	void testMattermostSend() {
 		mattermostNotifyService.sendNewRequest("Тестовая заявка " + "@moonshy");
-	}
+	}*/
+
+
+
 }

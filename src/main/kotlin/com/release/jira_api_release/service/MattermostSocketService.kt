@@ -3,6 +3,7 @@ package com.release.jira_api_release.service
 import com.release.jira_api_release.bot.dispather.MattermostEventDispatcher
 import com.release.jira_api_release.bot.handlers.command.CommandDispatcher
 import com.release.jira_api_release.bot.handlers.command.ShutDownCommandHandler
+import com.release.jira_api_release.bot.handlers.command.SynbuildCommandHandler
 import com.release.jira_api_release.bot.handlers.dialog.ReleaseDialogHandler
 import com.release.jira_api_release.config.MattermostProperties
 import jakarta.annotation.PostConstruct
@@ -24,6 +25,7 @@ class MattermostSocketService(
     private val commandDispatcher = CommandDispatcher(
         listOf(
             ShutDownCommandHandler(),
+            SynbuildCommandHandler()
         )
     )
 

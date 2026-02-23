@@ -51,7 +51,7 @@ class TeamlyRequestsPollingJob(
                 if (id.isBlank()) continue
                 if (processed.contains(id)) continue
 
-                val isComplete = teamlyQueryService.isComplete(row) // вынеси isComplete в public метод
+                val isComplete = teamlyQueryService.isComplete(row)
                 if (isComplete) {
                     val title = row.path("article").path("properties").path("properties")
                         .path("title").path("text").asText("").trim()
@@ -62,7 +62,6 @@ class TeamlyRequestsPollingJob(
                     if (processed.add(id)) processedChanged = true
                     if (pending.remove(id)) pendingChanged = true
                 } else {
-                    // видели, но ещё не complete
                     if (pending.add(id)) pendingChanged = true
                 }
             }

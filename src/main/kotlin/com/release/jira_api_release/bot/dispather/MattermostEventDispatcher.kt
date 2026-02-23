@@ -102,6 +102,7 @@ class MattermostEventDispatcher(
 
             is DialogSubmissionMessage -> {
 
+
             }
 
             else -> {
