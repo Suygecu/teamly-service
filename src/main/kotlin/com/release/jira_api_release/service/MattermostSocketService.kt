@@ -6,7 +6,6 @@ import com.release.jira_api_release.bot.handlers.command.ShutDownCommandHandler
 import com.release.jira_api_release.bot.handlers.command.SynbuildCommandHandler
 import com.release.jira_api_release.bot.handlers.dialog.ReleaseDialogHandler
 import com.release.jira_api_release.config.MattermostProperties
-import com.suygecu.teamly_service.teamly.TeamlyQuerySyncBuildService
 import jakarta.annotation.PostConstruct
 import net.exbo.mattermost.client.MattermostClient
 import org.springframework.context.ConfigurableApplicationContext
@@ -21,13 +20,11 @@ class MattermostSocketService(
     private val client: MattermostClient,
     private val updateSummaryState: UpdateSummaryState,
     private val ctx : ConfigurableApplicationContext,
-    private val teamlyQuerySyncBuildService: TeamlyQuerySyncBuildService,
 ) {
 
     private val commandDispatcher = CommandDispatcher(
         listOf(
             ShutDownCommandHandler(),
-            SynbuildCommandHandler()
         )
     )
 
@@ -35,9 +32,6 @@ class MattermostSocketService(
     private val dispatcher = MattermostEventDispatcher(
         client,
         commandDispatcher,
-        releaseDialogHandler,
-        updateSummaryState,
-        teamlyQuerySyncBuildService
     )
 
     @PostConstruct
