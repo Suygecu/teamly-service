@@ -1,4 +1,4 @@
-package com.suygecu.teamly_service.outlineservice
+package com.suygecu.teamly_service.outline.service
 
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component

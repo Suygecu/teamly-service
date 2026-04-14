@@ -1,7 +1,6 @@
 package com.suygecu.teamly_service;
 
-import com.suygecu.teamly_service.outlineservice.OutlineProperties;
-import kotlin.jvm.Throws;
+import com.suygecu.teamly_service.outline.service.OutlineProperties;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

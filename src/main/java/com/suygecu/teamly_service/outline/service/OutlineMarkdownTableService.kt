@@ -1,4 +1,4 @@
-package com.suygecu.teamly_service.outlineservice
+package com.suygecu.teamly_service.outline.service
 import com.suygecu.teamly_service.dto.jira.JiraTaskRow
 import com.suygecu.teamly_service.dto.outline.ExistingTableRow
 import com.suygecu.teamly_service.dto.outline.MarkdownTableBlock

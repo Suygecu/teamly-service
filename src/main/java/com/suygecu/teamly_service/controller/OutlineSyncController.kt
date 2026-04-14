@@ -1,7 +1,7 @@
 package com.suygecu.teamly_service.controller
 
-import com.suygecu.teamly_service.outlineservice.OutlineJiraSyncService
-import com.suygecu.teamly_service.outlineservice.SyncResult
+import com.suygecu.teamly_service.outline.service.OutlineJiraSyncService
+import com.suygecu.teamly_service.outline.service.SyncResult
 import com.suygecu.teamly_service.service.jira.ContentType
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping

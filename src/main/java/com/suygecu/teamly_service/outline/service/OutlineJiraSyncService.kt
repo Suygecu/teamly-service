@@ -1,4 +1,4 @@
-package com.suygecu.teamly_service.outlineservice
+package com.suygecu.teamly_service.outline.service
 
 import OutlineDocumentResponse
 import com.suygecu.teamly_service.dto.jira.JiraTaskRow
