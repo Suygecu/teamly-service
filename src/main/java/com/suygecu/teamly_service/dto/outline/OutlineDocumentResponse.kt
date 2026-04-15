@@ -1,4 +1,6 @@
+package com.suygecu.teamly_service.dto.outline
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class OutlineDocumentResponse(

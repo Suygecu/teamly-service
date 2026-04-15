@@ -1,7 +1,7 @@
 package com.suygecu.teamly_service.outline.service
 
-import OutlineDocumentResponse
 import com.suygecu.teamly_service.dto.outline.OutlineDocumentInfoRequest
+import com.suygecu.teamly_service.dto.outline.OutlineDocumentResponse
 import com.suygecu.teamly_service.dto.outline.OutlineDocumentUpdateRequest
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders

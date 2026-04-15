@@ -1,6 +1,7 @@
 package com.suygecu.teamly_service.outline.service
 
-import OutlineDocumentResponse
+
+import com.suygecu.teamly_service.dto.outline.OutlineDocumentResponse
 import com.suygecu.teamly_service.dto.outline.OutlineDocumentUpdateRequest
 import com.suygecu.teamly_service.dto.outline.OutlineUpdateDataAttribute
 import com.suygecu.teamly_service.service.jira.ContentType
