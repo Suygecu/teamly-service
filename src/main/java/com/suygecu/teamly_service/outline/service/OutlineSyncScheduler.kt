@@ -8,7 +8,7 @@ class OutlineSyncScheduler(
     private val outlineJiraSyncService: OutlineJiraSyncService
 ) {
 
-    @Scheduled(fixedDelayString = "\${outline.sync.delay-ms:900000}")
+    /*@Scheduled(fixedDelayString = "\${outline.sync.delay-ms:900000}")*/
     fun syncAllTables() {
         println("=== OUTLINE SYNC START ===")
 
