@@ -7,5 +7,7 @@ data class OutlineProperties(
     var baseUrl: String = "",
     var token: String = "",
     var documentsInfoPath: String = "/api/documents.info",
-    var documentsUpdatePath: String = "/api/documents.update"
+    var documentsUpdatePath: String = "/api/documents.update",
+    var documentsProsemirrorInfoPath: String = "/api/documents.prosemirror_info",
+    var documentsProsemirrorUpdatePath: String = "/api/documents.prosemirror_update"
 )

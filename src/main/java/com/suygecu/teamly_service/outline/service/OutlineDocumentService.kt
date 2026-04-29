@@ -9,7 +9,8 @@ import org.springframework.stereotype.Service
 
 @Service
 class OutlineDocumentService(
-    private val outlineClient: OutlineClient
+    private val outlineClient: OutlineClient,
+    private val outlineTableFilterService: OutlineTableFilterService
 ) {
 
     fun getDocumentByContentType(contentType: ContentType): OutlineDocumentResponse {
@@ -43,7 +44,11 @@ class OutlineDocumentService(
                 }
         )
 
-        return outlineClient.updateDocument(request)
+        val updated = outlineClient.updateDocument(request)
+
+        outlineTableFilterService.enableFiltersForDocument(data.id)
+
+        return updated
     }
 
     private fun rebuildTable(oldText: String): String {

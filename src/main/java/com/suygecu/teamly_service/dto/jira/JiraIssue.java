@@ -10,11 +10,4 @@ public class JiraIssue {
     private String key;
     private Fields fields;
 
-    public String getKey() {
-        return key;
-    }
-
-    public Fields getFields() {
-        return fields;
-    }
 }

@@ -17,7 +17,7 @@ class OutlineSyncScheduler(
 
             results.forEach {
                 println(
-                    "contentType=${it.contentType}, pageId=${it.pageId}, jiraTasksCount=${it.jiraTasksCount}, updated=${it.updated}"
+                    "contentType=${it.contentType}, pageId=${it.pageId}, jiraTasksCount=${it.jiraTasksCount}, updated=${it.updated}, filtersApplied=${it.filtersApplied}"
                 )
             }
         } catch (e: Exception) {
